@@ -4,6 +4,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Form Data Buku</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+
+    <script type="text/javascript">
+    function validateForm() {
+      var xkode = document.forms["form1"]["xkode"].value;
+      var xjudul = document.forms["form1"]["xjudul"].value;
+      var xpengarang = document.forms["form1"]["xpengarang"].value;
+      var xpenerbit = document.forms["form1"]["xpenerbit"].value;
+      var xtahun = document.forms["form1"]["xtahun"].value;
+      var xjenis = document.forms["form1"]["xjenis"].value;
+
+      if (xkode == "" ||xjudul == "" || xpenerbit == "" || xpengarang == "" || xtahun=="" || xjenis=="") {
+          alert("Form Harus diisi");
+          return false;
+      }
+    }
+    </script>
 </head>
 <style>
 td {
@@ -15,42 +31,42 @@ position:absolute;
 }
 
 .tombol{font-size:22px;
-	border-radius:20px;}  
+	border-radius:20px;}
 
 .tombol:hover{font-size:22px;
 	border-radius:10px;
 	color:#FF0000;
-	box-shadow:3px 3px 3px 2px 2px red; } 
+	box-shadow:3px 3px 3px 2px 2px red; }
 </style>
 <body>
 <div>
 	<img src="img/buku.png" width="120" height="200" />
 </div>
-<form action="simpan.php" method="post" name="form1">
+<form action="simpan.php" method="post" name="form1" onsubmit="return validateForm()">
 <table border="0" width="900" align="center" bgcolor="#00FFCC">
-	
+
 <tr>
 	<td colspan="3" align="center"><h2>Entry Data Buku</h2></td>
 </tr>
 <tr>
-	<td>Kode Buku </td><td>: </td> <td>	<input type="text" name="xkode" size="14" maxlength="15" /></td>
+	<td>Kode Buku </td><td>: </td> <td>	<input type="text" name="xkode" size="14" maxlength="15" required /></td>
 </tr>
 
 <tr>
-	<td>Judul Buku    </td><td>: </td> <td><input type="text" name="xjudul" size="50" maxlength="50" /></td>
+	<td>Judul Buku    </td><td>: </td> <td><input type="text" name="xjudul" size="50" maxlength="50" required /></td>
 </tr>
 <tr>
-	<td>Pengarang    </td><td>: </td> <td><input type="text" name="xpengarang" size="50" maxlength="50" /></td>
+	<td>Pengarang    </td><td>: </td> <td><input type="text" name="xpengarang" size="50" maxlength="50" required /></td>
 </tr>
 <tr>
-	<td>Tahun Terbit </td><td>: </td> <td><input type="date" name="xtahun"/></td>
+	<td>Tahun Terbit </td><td>: </td> <td><input type="date" name="xtahun" required/></td>
 </tr>
 <tr>
-	<td>Penerbit    </td><td>: </td> <td><input type="text" name="xpenerbit" size="50" maxlength="50" /></td>
+	<td>Penerbit    </td><td>: </td> <td><input type="text" name="xpenerbit" size="50" maxlength="50" required /></td>
 </tr>
 
 <tr>
-	<td>Jenis </td><td>: </td> 
+	<td>Jenis </td><td>: </td>
     <td><select name="xjenis">
 			<option value="ek">Ekonomi</option>
             <option value="ko">Komputer</option>
